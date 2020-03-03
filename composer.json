@@ -1,0 +1,61 @@
+{
+    "name": "orzford/limoncello",
+    "description": "Libraries for Limoncello PHP framework.",
+    "keywords": [
+        "framework",
+        "PSR-7",
+        "PSR7",
+        "limoncello",
+        "libraries"
+    ],
+    "homepage": "https://github.com/orzford/limoncello",
+    "support": {
+        "issues": "https://github.com/orzford/limoncello/issues"
+    },
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "dreamsbond",
+            "email": "info@dreamsbond.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "orzford/limoncello-uuid": "self.version"
+    },
+    "scripts": {
+        "test": [
+            "@clean-vendor-folders",
+            "@test-unit-with-coverage",
+            "@test-cs",
+            "@test-md"
+        ],
+        "clean-vendor-folders": [
+            "php -r \"system('rm -rf ./components/Uuid/vendor/');\""
+        ],
+        "test-unit": [
+            "@test-unit-component-Uuid"
+        ],
+        "test-unit-with-coverage": [
+            "@test-unit-with-coverage-component-Uuid"
+        ],
+        "update-component-Uuid": "@composer update --working-dir=./components/Uuid/ --optimize-autoloader --quiet",
+        "test-unit-component-Uuid": [
+            "@update-component-Uuid",
+            "@composer --working-dir=./components/Uuid/ test-unit"
+        ],
+        "test-unit-with-coverage-component-Uuid": [
+            "@update-component-Uuid",
+            "@composer --working-dir=./components/Uuid/ test-unit-with-coverage"
+        ],
+        "test-cs": [
+            "@test-cs-component-Uuid"
+        ],
+        "test-cs-component-Uuid": "@composer test-cs --working-dir=./components/Uuid/",
+        "test-md": [
+            "@test-md-component-Uuid"
+        ],
+        "test-md-component-Uuid": "@composer test-md --working-dir=./components/Uuid/"
+    },
+    "extra": {}
+}
