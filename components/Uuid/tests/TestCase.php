@@ -7,15 +7,14 @@ use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
 use Limoncello\Common\Reflection\ClassIsTrait;
 use Mockery;
-use PHPUnit\Framework\TestCase as BaseTestCase;
 
 /**
  * @package App
  */
-class TestCase extends BaseTestCase
+class TestCase extends \PHPUnit\Framework\TestCase
 {
     use ClassIsTrait;
-    
+
     /**
      * @inheritDoc
      */
