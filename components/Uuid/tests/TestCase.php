@@ -15,15 +15,7 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
 class TestCase extends BaseTestCase
 {
     use ClassIsTrait;
-
-    /**
-     * @inheritDoc
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-    }
-
+    
     /**
      * @inheritDoc
      */
