@@ -3,21 +3,23 @@
 namespace Orzford\Limoncello\Test\Uuid;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
 use Limoncello\Common\Reflection\ClassIsTrait;
 use Mockery;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 
 /**
  * @package App
  */
-class TestCase extends \PHPUnit\Framework\TestCase
+class TestCase extends BaseTestCase
 {
     use ClassIsTrait;
 
     /**
      * @inheritDoc
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
     }
@@ -25,7 +27,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * @inheritDoc
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
 
@@ -34,7 +36,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
     /**
      * @return Connection
-     * @throws \Doctrine\DBAL\DBALException
+     * @throws DBALException
      */
     protected function createConnection(): Connection
     {
