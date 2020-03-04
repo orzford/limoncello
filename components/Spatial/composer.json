@@ -1,12 +1,12 @@
 {
-    "name": "orzford/limoncello-ldap",
-    "description": "LDAP library for Limoncello PHP framework.",
+    "name": "orzford/limoncello-spatial",
+    "description": "Spatial library for Limoncello PHP framework.",
     "keywords": [
         "limoncello",
         "framework",
         "ldap"
     ],
-    "homepage": "https://github.com/orzford/limoncello/tree/master/components/Ldap",
+    "homepage": "https://github.com/orzford/limoncello/tree/master/components/Spatial",
     "support": {
         "issues": "https://github.com/orzford/limoncello/issues"
     },
@@ -19,7 +19,8 @@
     ],
     "require": {
         "php": ">=7.3.0",
-        "directorytree/ldaprecord": "^1.0"
+        "doctrine/dbal": "^2.10.0",
+        "brick/geo": "^0.2.6"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.9",
@@ -31,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Orzford\\Limoncello\\Ldap\\": "src/"
+            "Orzford\\Limoncello\\Spatial\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Orzford\\Limoncello\\Tests\\Ldap\\": "tests/"
+            "Orzford\\Limoncello\\Test\\Spatial\\": "tests/"
         }
     },
     "scripts": {
