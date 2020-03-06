@@ -21,7 +21,11 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "orzford/limoncello-uuid": "self.version"
+        "orzford/limoncello-route": "self.version",
+        "orzford/limoncello-uuid": "self.version",
+        "orzford/limoncello-spatial": "self.version",
+        "orzford/limoncello-validation": "self.version",
+        "orzford/limoncello-ldap": "self.version"
     },
     "scripts": {
         "test": [

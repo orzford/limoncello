@@ -19,6 +19,13 @@ abstract class LdapSettings implements LdapSettingsInterface
     {
         $defaults = $this->getSettings();
 
+        $host = $defaults[static::KEY_HOST] ?? [];
+        
+        assert(
+            is_array($host) === false || empty($host) === false,
+            "Invalid host `{$host}."
+        );
+
 //        $host = $defaults[static::KEY_HOST] ?? [];
 //        assert(
 //            is_array($host) === false || empty($host) === false,
