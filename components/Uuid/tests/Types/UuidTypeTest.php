@@ -21,9 +21,8 @@ class UuidTypesTest extends TestCase
     {
         parent::setUp();
 
-        if (Type::hasType(UuidType::NAME) === false) {
+        if (Type::hasType(UuidType::NAME) === false)
             Type::addType(UuidType::NAME, UuidType::class);
-        }
     }
 
     /**
