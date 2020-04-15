@@ -32,5 +32,5 @@ interface AzureSettingsInterface extends SettingsInterface
     /**
      * Config key
      */
-    const KEY_REDIRECT_URIS = self::KEY_CLIENT_SECRET + 1;
+    const KEY_REDIRECT_URI = self::KEY_CLIENT_SECRET + 1;
 }

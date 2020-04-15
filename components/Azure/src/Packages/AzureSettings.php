@@ -35,20 +35,22 @@ class AzureSettings implements AzureSettingsInterface
         $clientSecret = $defaults[static::KEY_CLIENT_SECRET];
         assert(empty($clientSecret) === false, "Invalid Client Name `$clientSecret`.");
 
-        $redirectUris = $defaults[static::KEY_REDIRECT_URIS];
-        assert(empty($redirectUris) === false, "Invalid Redirect Uris `$redirectUris`.");
+        $redirectUri = $defaults[static::KEY_REDIRECT_URI];
+        assert(empty($redirectUri) === false, "Invalid Redirect Uri `$redirectUri`.");
 
         return $defaults + [
                 static::KEY_CLIENT_NAME   => $clientName,
                 static::KEY_CLIENT_ID     => $clientId,
                 static::KEY_TENANT_ID     => $tenantId,
                 static::KEY_CLIENT_SECRET => $clientSecret,
-                static::KEY_REDIRECT_URIS => $redirectUris,
+                static::KEY_REDIRECT_URI  => $redirectUri,
             ];
     }
 
     protected function getSettings(): array
     {
+        $appConfig = $this->getAppConfig();
+        
         return [];
     }
 
