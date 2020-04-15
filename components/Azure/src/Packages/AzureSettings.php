@@ -3,12 +3,12 @@
 namespace Orzford\Limoncello\Azure\Packages;
 
 use Limoncello\Common\Reflection\CheckCallableTrait;
-use Limoncello\Contracts\Settings\SettingsInterface;
+use Orzford\Limoncello\Azure\Contracts\Settings\Packages\AzureSettingsInterface;
 
 /**
  * @package App
  */
-class AzureSettings implements SettingsInterface
+class AzureSettings implements AzureSettingsInterface
 {
     use CheckCallableTrait;
 
@@ -20,23 +20,39 @@ class AzureSettings implements SettingsInterface
     /**
      * @inheritDoc
      */
-    public function get(array $appConfig): array
+    final public function get(array $appConfig): array
     {
         $this->appConfig = $appConfig;
 
         $defaults = $this->getSettings();
+
+        $clientName = $defaults[static::KEY_CLIENT_NAME];
+        assert(empty($clientName) === false, "Invalid Client Name `$clientName`.");
+
+        $clientId = $defaults[static::KEY_CLIENT_ID];
+        assert(empty($clientId) === false, "Invalid Client Id `$clientId`.");
+
+        $tenantId = $defaults[static::KEY_TENANT_ID];
+        assert(empty($tenantId) === false, "Invalid Tenant Id `$tenantId`.");
+
+        $clientSecret = $defaults[static::KEY_CLIENT_SECRET];
+        assert(empty($clientSecret) === false, "Invalid Client Name `$clientSecret`.");
+
+        $redirectUris = $defaults[static::KEY_REDIRECT_URIS];
+        assert(empty($redirectUris) === false, "Invalid Redirect Uris `$redirectUris`.");
+
+        return $defaults + [
+                static::KEY_CLIENT_NAME   => $clientName,
+                static::KEY_CLIENT_ID     => $clientId,
+                static::KEY_TENANT_ID     => $tenantId,
+                static::KEY_CLIENT_SECRET => $clientSecret,
+                static::KEY_REDIRECT_URIS => $redirectUris,
+            ];
     }
 
-    protected function getSettings()
+    protected function getSettings(): array
     {
-        $appConfig = $this->getAppConfig();
-
-        return [
-            static::KEY_CLIENT_NAME                          => (bool)($appConfig[A::KEY_IS_LOG_ENABLED] ?? false),
-            static::KEY_CODE_EXPIRATION_TIME_IN_SECONDS      => 10 * 60,
-            static::KEY_TOKEN_EXPIRATION_TIME_IN_SECONDS     => 60 * 60,
-            static::KEY_RENEW_REFRESH_VALUE_ON_TOKEN_REFRESH => true,
-        ];
+        return [];
     }
 
     /**
