@@ -2,7 +2,6 @@
 
 namespace Orzford\Limoncello\Azure\Packages;
 
-use Limoncello\Common\Reflection\CheckCallableTrait;
 use Orzford\Limoncello\Azure\Contracts\Settings\Packages\AzureSettingsInterface;
 
 /**
@@ -10,8 +9,6 @@ use Orzford\Limoncello\Azure\Contracts\Settings\Packages\AzureSettingsInterface;
  */
 class AzureSettings implements AzureSettingsInterface
 {
-    use CheckCallableTrait;
-
     /**
      * @var array
      */
