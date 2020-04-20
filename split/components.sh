@@ -9,4 +9,5 @@ COMPONENTS=(
     'components/Validation/:git@github.com:orzford/limoncello-validation.git'
     'components/Spatial/:git@github.com:orzford/limoncello-spatial.git'
     'components/Azure/:git@github.com:orzford/limoncello-azure.git'
+    'components/App/:git@github.com:orzford/limoncello-app.git'
 )
