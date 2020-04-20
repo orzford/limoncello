@@ -49,9 +49,9 @@ class AzureSettings implements AzureSettingsInterface
 
     protected function getSettings(): array
     {
-        $appConfig = $this->getAppConfig();
-        
-        return [];
+        return [
+            static::KEY_GRAPH_RESOURCE_ENDPOINT => 'https://graph.windows.net',
+        ];
     }
 
     /**
