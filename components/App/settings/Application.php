@@ -16,7 +16,7 @@ class Application implements ApplicationConfigurationInterface
      */
     public function get(): array
     {
-        (new Dotenv(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..'])))->load();
+        (new Dotenv(implode(DIRECTORY_SEPARATOR, [__DIR__, '..'])))->load();
 
         $routesMask = '*Routes.php';
         $routesFolder = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'app', 'Routes']);
