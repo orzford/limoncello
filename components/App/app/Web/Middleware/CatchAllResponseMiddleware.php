@@ -7,6 +7,8 @@ use App\Web\Views;
 use Closure;
 use Laminas\Diactoros\Response\HtmlResponse;
 use Limoncello\Contracts\Application\MiddlewareInterface;
+use Limoncello\Contracts\Exceptions\AuthorizationExceptionInterface;
+use Limoncello\Contracts\Http\ThrowableResponseInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -31,6 +33,13 @@ class CatchAllResponseMiddleware implements MiddlewareInterface
     {
         /** @var ResponseInterface $response */
         $response = $next($request);
+
+        // is it an error response?
+        if ($response instanceof ThrowableResponseInterface) {
+            if ($response->getThrowable() instanceof AuthorizationExceptionInterface) {
+                return static::createResponseFromTemplate($container, Views::FORBIDDEN_PAGE, 403);
+            }
+        }
 
         // error responses might have just HTTP 4xx code as well
         switch ($response->getStatusCode()) {

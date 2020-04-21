@@ -4,7 +4,6 @@ namespace App\Routes;
 
 use App\Web\Controllers\TestController;
 use App\Web\Middleware\CatchAllResponseMiddleware;
-use App\Web\Middleware\CustomErrorResponsesMiddleware;
 use Limoncello\Contracts\Application\RoutesConfiguratorInterface;
 use Limoncello\Contracts\Routing\GroupInterface;
 use Limoncello\Contracts\Routing\RouteInterface;
@@ -31,9 +30,7 @@ class WebRoutes implements RoutesConfiguratorInterface
 
                 $routes
                     ->addContainerConfigurators([])
-                    ->addMiddleware([
-                        CustomErrorResponsesMiddleware::CALLABLE_HANDLER,
-                    ]);
+                    ->addMiddleware([]);
 
                 $routes
                     ->get(

@@ -22,3 +22,9 @@
 [2020-04-21T03:27:04.602230+00:00] Limoncello.DEBUG: CORS analysis for request started.  {"uid":"b1d0e2a","url":"/b1","ip":"127.0.0.1","http_method":"GET","server":"0.0.0.0","referrer":null}
 [2020-04-21T03:27:04.603233+00:00] Limoncello.INFO: Request is not CORS (request origin is empty).  {"uid":"b1d0e2a","url":"/b1","ip":"127.0.0.1","http_method":"GET","server":"0.0.0.0","referrer":null}
 [2020-04-21T03:27:04.604186+00:00] Limoncello.DEBUG: CORS analysis for request completed.  {"uid":"b1d0e2a","url":"/b1","ip":"127.0.0.1","http_method":"GET","server":"0.0.0.0","referrer":null}
+[2020-04-21T03:36:58.527665+00:00] Limoncello.DEBUG: CORS analysis for request started.  {"uid":"155617c","url":"/b1","ip":"127.0.0.1","http_method":"GET","server":"0.0.0.0","referrer":null}
+[2020-04-21T03:36:58.528867+00:00] Limoncello.INFO: Request is not CORS (request origin is empty).  {"uid":"155617c","url":"/b1","ip":"127.0.0.1","http_method":"GET","server":"0.0.0.0","referrer":null}
+[2020-04-21T03:36:58.529775+00:00] Limoncello.DEBUG: CORS analysis for request completed.  {"uid":"155617c","url":"/b1","ip":"127.0.0.1","http_method":"GET","server":"0.0.0.0","referrer":null}
+[2020-04-21T03:37:33.327995+00:00] Limoncello.DEBUG: CORS analysis for request started.  {"uid":"de7ebee","url":"/b1","ip":"127.0.0.1","http_method":"GET","server":"0.0.0.0","referrer":null}
+[2020-04-21T03:37:33.329434+00:00] Limoncello.INFO: Request is not CORS (request origin is empty).  {"uid":"de7ebee","url":"/b1","ip":"127.0.0.1","http_method":"GET","server":"0.0.0.0","referrer":null}
+[2020-04-21T03:37:33.330918+00:00] Limoncello.DEBUG: CORS analysis for request completed.  {"uid":"de7ebee","url":"/b1","ip":"127.0.0.1","http_method":"GET","server":"0.0.0.0","referrer":null}

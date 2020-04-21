@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/assets/css/error.css"/>
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="notfound">
+    <div class="notfound">
+        <div class="notfound-404">
+            <h1>Oops!</h1>
+        </div>
+        <h2>404 - Page not found</h2>
+        <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
+        <a href="#">Go To Homepage</a>
+    </div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% if master_canonical_sub_url %}
+        <link rel="canonical" href="{{ _origin_uri ~ master_canonical_sub_url }}"/>{% endif %}
+    <script src="/assets/index.js"></script>
+    {% block head_bottom %}{% endblock %}
+</head>
+
+<body>
+
+<div class="container">
+    {% block header %}{% endblock %}
+    {% block content %}{% endblock %}
+    {% block footer %}{% endblock %}
+</div>
+
+{% block body_bottom %}{% endblock %}
+</body>
+
+</html>

@@ -1,9 +1,8 @@
 .idea/
+node_modules/
 vendor/
 .env
 composer.lock
 package-lock.json
 yarn.lock
 yarn-error.log
-
-node_modules/

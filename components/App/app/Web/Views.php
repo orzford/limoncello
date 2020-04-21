@@ -17,10 +17,10 @@ interface Views
     /**
      *
      */
-    const NOT_FORBIDDEN_PAGE = 0;
+    const FORBIDDEN_PAGE = 0;
 
     /**
      *
      */
-    const NOT_FOUND_PAGE = self::NOT_FORBIDDEN_PAGE + 1;
+    const NOT_FOUND_PAGE = self::FORBIDDEN_PAGE + 1;
 }
