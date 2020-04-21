@@ -2,6 +2,9 @@
 
 namespace App\Web;
 
+/**
+ * @package App
+ */
 interface Views
 {
     /**
@@ -11,7 +14,13 @@ interface Views
      */
     const NAMESPACE = 'App.Views.Pages';
 
+    /**
+     *
+     */
     const NOT_FORBIDDEN_PAGE = 0;
 
+    /**
+     *
+     */
     const NOT_FOUND_PAGE = self::NOT_FORBIDDEN_PAGE + 1;
 }
