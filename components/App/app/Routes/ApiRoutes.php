@@ -2,31 +2,24 @@
 
 namespace App\Routes;
 
-use App\Web\Middleware\CustomErrorResponsesMiddleware;
 use Limoncello\Contracts\Application\RoutesConfiguratorInterface;
 use Limoncello\Contracts\Routing\GroupInterface;
 
 /**
  * @package App
  */
-class WebRoutes implements RoutesConfiguratorInterface
+class ApiRoutes implements RoutesConfiguratorInterface
 {
     /**
-     * Web URI prefix
+     * API URI prefix
      */
-    const WEB_URI_PREFIX = '/';
+    const API_URI_PREFIX = '/api/v1';
 
     /**
      * @inheritDoc
      */
     public static function configureRoutes(GroupInterface $routes): void
     {
-        $routes
-            ->group(self::WEB_URI_PREFIX, function (GroupInterface $routes): void {
-                $routes
-                    ->addContainerConfigurators([])
-                    ->addMiddleware([]);
-            });
     }
 
     /**

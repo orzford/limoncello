@@ -131,7 +131,7 @@ trait ControllerTrait
         string $type,
         string $method,
         string $index = null,
-        string $routePrefix = WebRoutes::WEB_GROUP_PREFIX
+        string $routePrefix = WebRoutes::WEB_URI_PREFIX
     ): string
     {
         $routeName = static::routeName($routePrefix, $type, $method);
