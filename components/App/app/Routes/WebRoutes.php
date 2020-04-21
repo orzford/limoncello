@@ -2,13 +2,17 @@
 
 namespace App\Routes;
 
-use App\Web\Middleware\CatchAllResponseMiddleware;
-use Limoncello\Application\Packages\Application\WhoopsContainerConfigurator;
 use Limoncello\Contracts\Application\RoutesConfiguratorInterface;
 use Limoncello\Contracts\Routing\GroupInterface;
 
+/**
+ * @package App
+ */
 class WebRoutes implements RoutesConfiguratorInterface
 {
+    /**
+     * Web URI prefix
+     */
     const WEB_GROUP_PREFIX = '/';
 
     /**
@@ -16,23 +20,15 @@ class WebRoutes implements RoutesConfiguratorInterface
      */
     public static function configureRoutes(GroupInterface $routes): void
     {
-//        $routes
-//            ->group(self::WEB_GROUP_PREFIX, function (GroupInterface $routes): void {
-//                $routes->addContainerConfigurators([
-//                    WhoopsContainerConfigurator::CONFIGURE_EXCEPTION_HANDLER,
-//                ])->addMiddleware([
-//                    CustomErrorResponsesMiddleware::CALLABLE_HANDLER,
-//                ]);
-//            });
     }
 
     /**
+     * This middleware will be executed on every request even when no matching route is found.
+     *
      * @inheritDoc
      */
     public static function getMiddleware(): array
     {
-        return [
-            CatchAllResponseMiddleware::class,
-        ];
+        return [];
     }
 }
