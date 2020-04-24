@@ -2,11 +2,9 @@
 
 namespace App\Routes;
 
-use App\Web\Controllers\TestController;
 use App\Web\Middleware\CatchAllResponseMiddleware;
 use Limoncello\Contracts\Application\RoutesConfiguratorInterface;
 use Limoncello\Contracts\Routing\GroupInterface;
-use Limoncello\Contracts\Routing\RouteInterface;
 
 /**
  * @package App
@@ -32,13 +30,6 @@ class WebRoutes implements RoutesConfiguratorInterface
                     ->addContainerConfigurators([])
                     ->addMiddleware([]);
 
-                $routes
-                    ->get(
-                        '/',
-                        TestController::CALLABLE_SHOW_HOME,
-                        [RouteInterface::PARAM_NAME => TestController::ROUTE_NAME_HOME]
-                    );
-
             });
     }
 
@@ -50,7 +41,7 @@ class WebRoutes implements RoutesConfiguratorInterface
     public static function getMiddleware(): array
     {
         return [
-//            CatchAllResponseMiddleware::class,
+            CatchAllResponseMiddleware::class,
         ];
     }
 }

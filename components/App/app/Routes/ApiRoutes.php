@@ -2,8 +2,6 @@
 
 namespace App\Routes;
 
-use App\Json\Controllers\TestsController;
-use App\Json\Schema\TestSchema;
 use Limoncello\Contracts\Application\RoutesConfiguratorInterface;
 use Limoncello\Contracts\Routing\GroupInterface;
 use Limoncello\Flute\Http\Traits\FluteRoutesTrait;
@@ -34,7 +32,6 @@ class ApiRoutes implements RoutesConfiguratorInterface
                     FluteContainerConfigurator::CONFIGURE_EXCEPTION_HANDLER,
                 ]);
 
-                self::apiController($routes, TestSchema::TYPE, TestsController::class);
             });
     }
 
