@@ -14,6 +14,7 @@ use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Zend\Diactoros\Response\TextResponse;
 
 /**
  * @package App
@@ -44,7 +45,8 @@ class CatchAllResponseMiddleware implements MiddlewareInterface
         // error responses might have just HTTP 4xx code as well
         switch ($response->getStatusCode()) {
             case 404:
-                return static::createResponseFromTemplate($container, Views::NOT_FOUND_PAGE, 404);
+                return new TextResponse('123');
+//                return static::createResponseFromTemplate($container, Views::NOT_FOUND_PAGE, 404);
             default:
                 return $response;
         }

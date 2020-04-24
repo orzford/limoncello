@@ -57,13 +57,13 @@ class Application implements ApplicationConfigurationInterface
                 \Limoncello\Application\Packages\Cors\CorsProvider::class,
                 \Limoncello\Application\Packages\Csrf\CsrfMinimalProvider::class,
                 \Limoncello\Application\Packages\Data\DataProvider::class,
-                \Limoncello\Application\Packages\L10n\L10nProvider::class,
+                //                \Limoncello\Application\Packages\L10n\L10nProvider::class,
                 \Limoncello\Application\Packages\Monolog\MonologFileProvider::class,
                 \Limoncello\Application\Packages\FileSystem\FileSystemProvider::class,
                 \Limoncello\Crypt\Package\HasherProvider::class,
                 \Limoncello\Flute\Package\FluteProvider::class,
-//                \Limoncello\Passport\Package\PassportProvider::class,
-//                \Limoncello\Templates\Package\TwigTemplatesProvider::class,
+                //                \Limoncello\Passport\Package\PassportProvider::class,
+                //                \Limoncello\Templates\Package\TwigTemplatesProvider::class,
             ],
         ];
     }
