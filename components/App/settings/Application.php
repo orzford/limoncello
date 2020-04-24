@@ -62,8 +62,8 @@ class Application implements ApplicationConfigurationInterface
                 \Limoncello\Application\Packages\FileSystem\FileSystemProvider::class,
                 \Limoncello\Crypt\Package\HasherProvider::class,
                 \Limoncello\Flute\Package\FluteProvider::class,
-                //                \Limoncello\Passport\Package\PassportProvider::class,
-                \Limoncello\Templates\Package\TwigTemplatesProvider::class,
+//                \Limoncello\Passport\Package\PassportProvider::class,
+//                \Limoncello\Templates\Package\TwigTemplatesProvider::class,
             ],
         ];
     }
