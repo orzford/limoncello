@@ -12,11 +12,12 @@ use Zend\Diactoros\Response\TextResponse;
  */
 class TestController
 {
+    const ROUTE_NAME_HOME = 'test::showHome';
+
     /**
      * Controller handler
      */
     const CALLABLE_SHOW_HOME = [self::class, 'showHome'];
-    const ROUTE_NAME_HOME = 'test::showHome';
 
     /**
      * @inheritdoc

@@ -46,7 +46,6 @@ class CatchAllResponseMiddleware implements MiddlewareInterface
         switch ($response->getStatusCode()) {
             case 404:
                 return new TextResponse('catch-all');
-//                return static::createResponseFromTemplate($container, Views::NOT_FOUND_PAGE, 404);
             default:
                 return $response;
         }

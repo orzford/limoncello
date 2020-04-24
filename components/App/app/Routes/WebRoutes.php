@@ -50,7 +50,7 @@ class WebRoutes implements RoutesConfiguratorInterface
     public static function getMiddleware(): array
     {
         return [
-            CatchAllResponseMiddleware::class,
+//            CatchAllResponseMiddleware::class,
         ];
     }
 }
