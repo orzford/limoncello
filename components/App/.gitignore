@@ -6,3 +6,4 @@ composer.lock
 package-lock.json
 yarn.lock
 yarn-error.log
+limoncello.log
