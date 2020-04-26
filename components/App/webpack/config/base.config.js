@@ -1,6 +1,5 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const FsWatchPlugin = require('./FsWatchPlugin');
 
 const assetsSubFolder = 'assets';
 const publicDir = path.resolve(__dirname, '..', '..', 'public');
@@ -9,7 +8,7 @@ const srcRootFolder = path.resolve(__dirname, '..', 'src');
 
 module.exports = {
     entry: {
-        index: path.resolve(srcRootFolder, 'index.ts')
+        errors: path.resolve(srcRootFolder, 'errors.ts'),
     },
     module: {
         rules: [
@@ -24,7 +23,8 @@ module.exports = {
                         }
                     }
                 ],
-            }, {
+            },
+            {
                 test: /\.(scss)$/,
                 use: [{
                     loader: 'style-loader', // inject CSS to page
@@ -45,13 +45,6 @@ module.exports = {
     plugins: [
         // hack with `root` dir. Otherwise the files are not removed because they are 'outside of the project root'.
         new CleanWebpackPlugin('*.*', {root: outputDir}),
-
-        new FsWatchPlugin({
-            extraRootFolders: [
-                path.resolve(__dirname, '..', 'src'),
-                path.resolve(__dirname, '..', '..', 'server', 'resources', 'views'),
-            ]
-        }),
     ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
@@ -62,15 +55,5 @@ module.exports = {
         publicPath: `/${assetsSubFolder}/`,
         path: outputDir,
         filename: '[name].js',
-    },
-    devServer: {
-        contentBase: publicDir,
-        compress: true,
-        port: 8080,
-        stats: 'minimal',
-        proxy: [{
-            context: ['**', '!/assets/**', '!/img/**'],
-            target: 'http://localhost:8090',
-        }],
     },
 };

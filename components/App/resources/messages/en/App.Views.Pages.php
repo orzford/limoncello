@@ -3,5 +3,5 @@
 use App\Web\Views;
 
 return [
-    Views::FORBIDDEN_PAGE => implode(DIRECTORY_SEPARATOR, ['pages', 'en', '403.html.twig']),
+    Views::FORBIDDEN_PAGE => implode(DIRECTORY_SEPARATOR, ['errors', 'en', '403.html.twig']),
 ];

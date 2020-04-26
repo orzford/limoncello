@@ -45,7 +45,8 @@ class CatchAllResponseMiddleware implements MiddlewareInterface
         // error responses might have just HTTP 4xx code as well
         switch ($response->getStatusCode()) {
             case 404:
-                return new TextResponse('catch-all');
+                return static::createResponseFromTemplate($container, Views::FORBIDDEN_PAGE, 403);
+//                return new TextResponse('catch-all');
             default:
                 return $response;
         }
