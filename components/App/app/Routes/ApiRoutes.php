@@ -2,6 +2,9 @@
 
 namespace App\Routes;
 
+use App\Json\Controllers\UsersController;
+use App\Json\Schemas\UserSchema;
+use App\Web\Middleware\CatchAllResponseMiddleware;
 use Limoncello\Contracts\Application\RoutesConfiguratorInterface;
 use Limoncello\Contracts\Routing\GroupInterface;
 use Limoncello\Flute\Http\Traits\FluteRoutesTrait;
@@ -28,9 +31,13 @@ class ApiRoutes implements RoutesConfiguratorInterface
             // JSON API group
             // This group uses custom exception handler to provide error information in JSON API format.
             ->group(self::API_URI_PREFIX, function (GroupInterface $routes): void {
-                $routes->addContainerConfigurators([
-                    FluteContainerConfigurator::CONFIGURE_EXCEPTION_HANDLER,
-                ]);
+                $routes
+                    ->addContainerConfigurators([
+                        FluteContainerConfigurator::CONFIGURE_EXCEPTION_HANDLER,
+                    ])
+                    ->addMiddleware([]);
+
+                self::apiController($routes, UserSchema::TYPE, UsersController::class);
 
             });
     }

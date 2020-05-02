@@ -2,7 +2,14 @@
 
 namespace App\Routes;
 
+use App\Container\RequestStorageConfigurator;
 use App\Web\Middleware\CatchAllResponseMiddleware;
+use App\Web\Middleware\RememberRequestMiddleware;
+use Limoncello\Application\Packages\Application\WhoopsContainerConfigurator;
+use Limoncello\Application\Packages\Csrf\CsrfContainerConfigurator;
+use Limoncello\Application\Packages\Csrf\CsrfMiddleware;
+use Limoncello\Application\Packages\Session\SessionContainerConfigurator;
+use Limoncello\Application\Packages\Session\SessionMiddleware;
 use Limoncello\Contracts\Application\RoutesConfiguratorInterface;
 use Limoncello\Contracts\Routing\GroupInterface;
 
@@ -27,8 +34,19 @@ class WebRoutes implements RoutesConfiguratorInterface
             ->group(self::WEB_URI_PREFIX, function (GroupInterface $routes): void {
 
                 $routes
-                    ->addContainerConfigurators([])
-                    ->addMiddleware([]);
+                    ->addContainerConfigurators([
+                        WhoopsContainerConfigurator::CONFIGURE_EXCEPTION_HANDLER,
+                        CsrfContainerConfigurator::CONFIGURATOR,
+                        SessionContainerConfigurator::CONFIGURATOR,
+                        RequestStorageConfigurator::CONFIGURATOR,
+                    ])
+                    ->addMiddleware([
+                        CatchAllResponseMiddleware::CALLABLE_HANDLER,
+                        //                        CustomErrorResponsesMiddleware::CALLABLE_HANDLER,
+                        SessionMiddleware::CALLABLE_HANDLER,
+                        CsrfMiddleware::CALLABLE_HANDLER,
+                        RememberRequestMiddleware::CALLABLE_HANDLER,
+                    ]);
 
             });
     }
@@ -41,7 +59,7 @@ class WebRoutes implements RoutesConfiguratorInterface
     public static function getMiddleware(): array
     {
         return [
-            CatchAllResponseMiddleware::class,
+//            CatchAllResponseMiddleware::class,
         ];
     }
 }

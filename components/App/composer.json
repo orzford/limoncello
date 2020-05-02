@@ -4,6 +4,12 @@
     "support": {
         "issues": "https://github.com/orzford/limoncello-app/issues"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../Azure"
+        }
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -15,7 +21,8 @@
         "php": ">=7.3.0",
         "vlucas/phpdotenv": "^2.3",
         "limoncello-php/framework": "^0.10.0",
-        "neomerx/json-api": "^3.0.0"
+        "neomerx/json-api": "^3.0.0",
+        "twig/extensions": "^1.5"
     },
     "require-dev": {
         "limoncello-php/testing": "^0.10.0",

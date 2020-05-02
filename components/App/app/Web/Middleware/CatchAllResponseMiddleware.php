@@ -24,6 +24,11 @@ class CatchAllResponseMiddleware implements MiddlewareInterface
     use ControllerTrait;
 
     /**
+     * Middleware handler.
+     */
+    const CALLABLE_HANDLER = [self::class, self::MIDDLEWARE_METHOD_NAME];
+
+    /**
      * @inheritDoc
      */
     public static function handle(
@@ -38,15 +43,16 @@ class CatchAllResponseMiddleware implements MiddlewareInterface
         // is it an error response?
         if ($response instanceof ThrowableResponseInterface) {
             if ($response->getThrowable() instanceof AuthorizationExceptionInterface) {
-                return static::createResponseFromTemplate($container, Views::FORBIDDEN_PAGE, 403);
+//                return static::createResponseFromTemplate($container, Views::FORBIDDEN_PAGE, 403);
+                return new TextResponse('403');
             }
         }
 
         // error responses might have just HTTP 4xx code as well
         switch ($response->getStatusCode()) {
             case 404:
-                return static::createResponseFromTemplate($container, Views::FORBIDDEN_PAGE, 403);
-//                return new TextResponse('catch-all');
+//                return static::createResponseFromTemplate($container, Views::FORBIDDEN_PAGE, 403);
+                return new TextResponse('404');
             default:
                 return $response;
         }
