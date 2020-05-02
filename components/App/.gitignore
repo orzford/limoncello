@@ -1,6 +1,7 @@
 .idea/
 node_modules/
 storage/logs/*.log
+storage/*.sqlite
 vendor/
 .env
 composer.lock
